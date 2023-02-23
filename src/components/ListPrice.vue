@@ -1,7 +1,9 @@
 <template>
-  <div class="container-fluid px-5">
-    <h1>Harga Bitcoin Hari Ini</h1>
-    <table class="table table-bordered">
+  <h1 class="text-center mt-5" style="font-weight: 600">
+    Harga Bitcoin Hari Ini
+  </h1>
+  <div class="container-fluid w-50 mt-4">
+    <table class="table table-bordered" style="border: 1px solid black">
       <thead>
         <tr>
           <th scope="col">Mata Uang</th>
@@ -35,5 +37,3 @@ export default {
   name: 'ListPrice',
 };
 </script>
-
-<style lang="scss" scoped></style>

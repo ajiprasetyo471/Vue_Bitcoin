@@ -1,21 +1,16 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <Navbar />
-    </div>
     <div class="container text-align">
+      <h1 class="text-center mt-5" style="font-weight: 600">
+        Konversi Bitcoin ke Rupiah
+      </h1>
+      <p class="text-center mt-1 fw-bold">Kurs 1 USD = 14.000 IDR</p>
       <div class="d-flex justify-content-center mt-5">
-        <h1>Konversi Bitcoin ke Rupiah</h1>
+        <input type="number" class="w-75 py-2 px-1" />
       </div>
-      <div class="d-flex justify-content-center mt-1">
-        <h5>Kurs 1 USD = 14.000 IDR</h5>
-      </div>
-      <div class="d-flex justify-content-center mt-2">
-        <input type="number" />
-      </div>
-      <div class="d-flex justify-content-center mt-2">
-        <h5>BTC 1 = Rp 1020102</h5>
-      </div>
+      <h1 class="text-center mt-3" style="font-weight: 600">
+        BTC 1 = Rp 1020102
+      </h1>
     </div>
   </div>
 </template>
@@ -25,5 +20,3 @@ export default {
   name: 'BtcToRp',
 };
 </script>
-
-<style lang="scss" scoped></style>
