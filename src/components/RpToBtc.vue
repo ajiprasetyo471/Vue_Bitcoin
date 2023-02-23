@@ -14,7 +14,7 @@
         />
       </div>
       <h1 class="text-center mt-3" style="font-weight: 600">
-        {{ rupiah(inputRp) }} = BTC {{ resultBtc }}
+        Rp {{ inputRp }} = BTC {{ resultBtc }}
       </h1>
     </div>
   </div>
@@ -42,13 +42,6 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-    },
-    rupiah(value) {
-      return new Intl.NumberFormat('id-ID', {
-        style: 'currency',
-        currency: 'IDR',
-        minimumFractionDigits: 0,
-      }).format(value);
     },
   },
 };
