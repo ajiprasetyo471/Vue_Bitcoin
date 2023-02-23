@@ -12,20 +12,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@twitter</td>
+        <tr v-for="(item, index) in items" :key="index">
+          <td>{{ getCurrency(item.symbol) }}</td>
+          <td>{{ item.buy }}</td>
+          <td>{{ item.sell }}</td>
         </tr>
       </tbody>
     </table>
@@ -33,7 +23,45 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'ListPrice',
+  data() {
+    return {
+      items: [],
+    };
+  },
+  mounted() {
+    this.getListPrice();
+  },
+  methods: {
+    async getListPrice() {
+      axios
+        .get('https://blockchain.info/ticker')
+        .then((response) => {
+          const data = response.data;
+          this.items = [data.ARS, data.EUR, data.GBP, data.JPY, data.USD];
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    getCurrency(symbol) {
+      if (symbol === 'ARS') {
+        return 'Dollar Australia';
+      } else if (symbol === 'EUR') {
+        return 'Euro Eropa';
+      } else if (symbol === 'GBP') {
+        return 'Poundsterling Inggris';
+      } else if (symbol === 'JPY') {
+        return 'Yen Jepang';
+      } else if (symbol === 'USD') {
+        return 'Dollar Amerika';
+      } else {
+        return '';
+      }
+    },
+  },
 };
 </script>
